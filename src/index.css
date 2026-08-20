@@ -1,0 +1,79 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F2EC;
+  --red: #E8181A;
+  --yellow: #FFD600;
+  --blue: #1A1AE8;
+  --ink: #0A0A0A;
+}
+
+html {
+  background-color: var(--cream);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  word-break: keep-all;
+}
+
+/* 한글 헤드라인 — 굵고 임팩트 있는 디스플레이 */
+.font-display {
+  font-family: 'Black Han Sans', 'Pretendard Variable', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-num {
+  font-family: 'Black Han Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.35;
+  z-index: 999;
+  mix-blend-mode: multiply;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--ink); }
